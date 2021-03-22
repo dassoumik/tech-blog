@@ -6,12 +6,12 @@ router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
     const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['user_name'],
-        },
-      ],
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['user_name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
       blogs, 
       logged_in: req.session.logged_in 
     });
+    console.log("in render hp");
   } catch (err) {
     res.status(500).json(err);
   }
@@ -76,7 +77,8 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  const newLocal = 'login';
+  res.render(newLocal);
 });
 
 module.exports = router;
