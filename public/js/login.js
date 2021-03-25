@@ -17,7 +17,12 @@ const loginFormHandler = async (event) => {
 
     if (response.ok) {
       // If successful, redirect the browser to the profile page
-      document.location.replace('/profile');
+      document.location.replace('/api/profile');
+      // const res = await fetch('/api/profile', {
+      //   method: 'POST',
+      //   // body: JSON.stringify({ "user_name": response.user_name}),
+      //   headers: { 'Content-Type': 'application/json' },
+      // });
     } else {
       alert(response.statusText);
     }
