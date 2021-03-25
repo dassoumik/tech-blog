@@ -63,11 +63,12 @@ router.get('/api/profile', withAuth, async (req, res) => {
       include: [{ model: Blog }],
     });
 
-    const user = userData.get({ plain: true });
-
+    const users = userData.get({ plain: true });
+    // console.log(user_name);
     res.render('profile', {
-      ...user,
-      logged_in: true
+      ...users,
+      user_name: req.session.user_name,
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
