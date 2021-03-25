@@ -35,11 +35,12 @@ router.get('/', async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log(req.params.id);
   try {
     const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
 

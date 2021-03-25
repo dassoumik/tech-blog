@@ -23,15 +23,16 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
+  console.log("in del event");
   if (event.target.hasAttribute('data-id')) {
     const id = event.target.getAttribute('data-id');
-
-    const response = await fetch(`/api/projects/${id}`, {
+    console.log(id);
+    const response = await fetch(`/api/profile/${id}`, {
       method: 'DELETE',
     });
 
     if (response.ok) {
-      document.location.replace('/profile');
+      document.location.replace('/api/profile');
     } else {
       alert('Failed to delete project');
     }
@@ -40,8 +41,9 @@ const delButtonHandler = async (event) => {
 
 document
   .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+  // .addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+// const delButton = document
+//   .querySelectorAll('.fa-trash-alt');
+// delButton.addEventListener('click', delButtonHandler);
+$(document).on('click', delButtonHandler);
