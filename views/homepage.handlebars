@@ -2,11 +2,11 @@
 <!-- Loop over each object in the blogs array -->
 {{#each blogs as |blog| }}
 
-<div class="card">
+<div class="card border rounded-lg border-dark">
   <div class="card-header">
-    <span> <a href="/blog/{{blog.id}}">{{blog.title}}</a></span>
+    <span> <a style="color: #f6c065;" href="/blog/{{blog.id}}">{{blog.title}}</a></span>
     <div class="inline text-right">
-    <span class="text-right">Created by {{blog.user.user_name}} on {{format_date blog.date_created}}</span>
+    <span class="text-right" style="color: #e48900;">Created by {{blog.user.user_name}} on {{format_date blog.date_created}}</span>
     </div> 
   </div>
 
