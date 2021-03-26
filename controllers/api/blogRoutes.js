@@ -35,6 +35,29 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', withAuth, async (req, res) => {
+  console.log("in here get blog");
+  console.log(req.session);
+ try {
+  const sessionData = new Date();
+  console.log(sessionData);
+  const newBlog = await Blog.findByPk(req.params.id) 
+    // ...req.body,
+    // user_id: req.session.user_name,
+  // });
+  const blogs_det = newBlog.map((blog) =>
+      blog.get({ plain: true });
+    res.render('blogsdetail', {
+      blogs: blogs_det,
+      user_name: req.session.user_name,
+      date_time: sessionData,
+      logged_in: req.session.logged_in,
+    },);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 
 // Login route
 router.get('/login', (req, res) => {

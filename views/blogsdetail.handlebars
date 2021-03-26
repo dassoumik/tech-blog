@@ -1,12 +1,10 @@
-
-<!-- Loop over each object in the blogs array -->
-{{#each blogs as |blog| }}
-
 <div class="card border rounded-lg border-dark">
   <div class="card-header">
-    <span> <a style="color: #f6c065;" href="/blogs/{{blog.id}}">{{blog.title}}</a></span>
+    <span> <a style="color: #f6c065;" href="/blog/{{blog.id}}">{{blog.title}}</a></span>
     <div class="inline text-right">
     <span class="text-right" style="color: #e48900;">Created by {{blog.user.user_name}} on {{format_date blog.date_created}}</span>
+    <span class="btn text-white"><i class="far fa-trash-alt"  data-id={{blog.id}}></i></span>
+    <span class="btn text-white"><i class="fas fa-pencil-alt"  data-id-write={{blog.id}}></i></span>
     </div> 
   </div>
 
@@ -16,4 +14,3 @@
     </blockquote>
   </div>
 </div>
-{{/each}}
