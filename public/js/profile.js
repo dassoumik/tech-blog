@@ -48,7 +48,7 @@ const createHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/api/blogs');
     } else {
-      alert('Failed to delete project');
+      alert('Failed to get the blog add page');
     }
   };
 
@@ -58,7 +58,7 @@ document
   // .addEventListener('submit', newFormHandler);
 
 document
-  .querySelector('.create-project')
+  .querySelector('.create-blog')
   .addEventListener('click', createHandler);
 
 // const delButton = document
