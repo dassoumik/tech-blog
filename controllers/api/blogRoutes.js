@@ -6,10 +6,11 @@ const session = require('express-session');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+  console.log(req.body);
   try {
     const newBlog = await Blog.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.user_name,
     });
 
     res.status(200).json(newBlog);
@@ -26,10 +27,8 @@ router.get('/', withAuth, async (req, res) => {
   console.log(sessionData);
     res.render('blogs', {
       user_name: req.session.user_name,
-      // logged_in: req.session.logged_in,
       date_time: sessionData,
     },);
-    // res.status(200).json(newBlog);
   } catch (err) {
     res.status(400).json(err);
   }

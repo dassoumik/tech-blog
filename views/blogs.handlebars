@@ -1,5 +1,5 @@
 <div class="container text-center">
-<div class="mb-3">Welcome {{user_name}}!</div>
+<div class="mb-3">Welcome <span id="user-name" data-user={{user_name}}>{{user_name}}!</span></div>
 <form>
     <div class="form-group">
 <div class="card">
@@ -7,7 +7,7 @@
     <span> <label for="exampleInputEmail1">Blog Title</label>
     <input type="text" class="form-control" id="blog-title" placeholder="Enter your blog title"></span>
     <div class="text-right">
-    <span class="text-right">Created on {{format_date date_time}}</span>
+    <span class="text-right">Created on</span> <span class="current-date" data-date={{format_date date_time}}>{{format_date date_time}}</span>
     </div> 
   </div>
 </div>
@@ -16,7 +16,7 @@
   <div class="card-body">
     <blockquote class="blockquote mb-0">
       <p><label for="blog-text">Blog Text</label>
-    <input type="text-area" class="form-control" id="blog-text" placeholder="Enter your blog content here"></p>  
+    <input type="textarea" class="form-control" id="blog-text" placeholder="Enter your blog content here"></p>  
     </blockquote>
   </div>
 </div>
