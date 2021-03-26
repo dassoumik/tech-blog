@@ -15,18 +15,18 @@
 <body>
     <div class="flex-column justify-space-around">
         <header class="display-flex justify-space-between align-center p-2">
-            <nav class="nav navbar bg-dark" style="width: 100%;">
+            <nav class="nav navbar bg-success" style="width: 100%;">
                 <h4>
                     <span role="img" aria-label="symbol">&#9809;</span>
                     <span class="text-white">Tech Blog</span>
                 </h4>
 
                 <!-- Conditionally render login or logout links -->
-                    <a class="mr-5 nav-item" href="/">Home</a>
+                    <a class="ml-auto mr-3 nav-item text-black" href="/">Home</a>
                 {{#if logged_in}}
                 {{!-- <a class="mr-5 nav-item" href="/api/profile">profile</a> | --}}
-                    <a class="mr-5 nav-item" href="/api/profile">Dashboard</a>
-                <button class="no-button mr-5 nav-item" id="logout">logout</button>
+                    <a class="ml-3 mr-3 nav-item text-black" href="/api/profile">Dashboard</a>
+                <button class="no-button mr-5 nav-item text-dark" id="logout">logout</button>
                 {{else}}
                 <a class="mr-5 nav-item" href="/login">login</a>
                 {{/if}}
