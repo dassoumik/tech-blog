@@ -40,16 +40,17 @@ const delButtonHandler = async (event) => {
 };
 
 const createHandler = async (event) => {
+  document.location.replace('/api/blogs');
   
-    const response = await fetch(`/api/blogs`, {
-      method: 'GET',
-    });
+    // const response = await fetch(`/api/blogs`, {
+    //   method: 'GET',
+    // });
 
-    if (response.ok) {
-      document.location.replace('/api/blogs');
-    } else {
-      alert('Failed to get the blog add page');
-    }
+    // if (response.ok) {
+    //   document.location.replace('/api/blogs');
+    // } else {
+    //   alert('Failed to get the blog add page');
+    // }
   };
 
 
