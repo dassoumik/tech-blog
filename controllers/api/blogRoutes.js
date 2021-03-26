@@ -28,6 +28,7 @@ router.get('/', withAuth, async (req, res) => {
     res.render('blogs', {
       user_name: req.session.user_name,
       date_time: sessionData,
+      logged_in: req.session.logged_in,
     },);
   } catch (err) {
     res.status(400).json(err);
