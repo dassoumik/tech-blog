@@ -18,13 +18,14 @@
             <nav class="nav navbar bg-dark" style="width: 100%;">
                 <h4>
                     <span role="img" aria-label="symbol">&#9809;</span>
-                    <a class="mr-3 pr-3" href="/">Home</a>
-                    <a class="ml-3 pl-3" href="/api/profile">Dashboard</a>
+                    <span class="text-white">Tech Blog</span>
                 </h4>
 
                 <!-- Conditionally render login or logout links -->
+                    <a class="mr-5 nav-item" href="/">Home</a>
                 {{#if logged_in}}
                 {{!-- <a class="mr-5 nav-item" href="/api/profile">profile</a> | --}}
+                    <a class="mr-5 nav-item" href="/api/profile">Dashboard</a>
                 <button class="no-button mr-5 nav-item" id="logout">logout</button>
                 {{else}}
                 <a class="mr-5 nav-item" href="/login">login</a>
