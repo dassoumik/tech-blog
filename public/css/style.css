@@ -23,6 +23,15 @@ header, .project:not(:last-child) {
   margin-left: -5px;
 }
 
+
+.bg-light-green {
+  background-color: #dbf6e9;
+}
+
 .bg-green {
   background-color: #9ddfd3;
+}
+
+.bg-blue {
+  background-color: #31326f;
 }
