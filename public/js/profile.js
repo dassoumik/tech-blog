@@ -39,9 +39,27 @@ const delButtonHandler = async (event) => {
   }
 };
 
+const createHandler = async (event) => {
+  
+    const response = await fetch(`/api/blogs`, {
+      method: 'GET',
+    });
+
+    if (response.ok) {
+      document.location.replace('/api/blogs');
+    } else {
+      alert('Failed to delete project');
+    }
+  };
+
+
 document
   .querySelector('.new-project-form')
   // .addEventListener('submit', newFormHandler);
+
+document
+  .querySelector('.create-project')
+  .addEventListener('click', createHandler);
 
 // const delButton = document
 //   .querySelectorAll('.fa-trash-alt');
