@@ -2,11 +2,11 @@
 
 <div class="container text-center">
 <div class="mb-3">Welcome {{user_name}}!</div>
-{{#each blogs as |blog| }}
+{{#each blogUsers as |blog| }}
 
 <div class="card border rounded-lg border-dark">
   <div class="card-header text-left">
-    <span > <a style="color: #f6c065;" href="/blog/{{blog.id}}">{{blog.title}}</a></span>
+    <span > <a style="color: #f6c065;" href="/api/blogs/{{blog.id}}">{{blog.title}}</a></span>
     <div class="text-right">
     <span class="text-right" style="color: #e48900;">Created on {{format_date blog.date_created}}</span>
     <span class="btn text-white"><i class="far fa-trash-alt"  data-id={{blog.id}}></i></span>

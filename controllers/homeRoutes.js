@@ -7,13 +7,13 @@ const helpers = require('../utils/helpers');
 router.get('/', async (req, res) => {
   try {
     // Get all blogs and JOIN with user data
-    const blogData = await Blog.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['user_name'],
-        },
-      ],
+    const blogData = await Blog.findAll({ include: [{ all: true, nested: true }]
+      // include: [
+      //   {
+      //     model: User,
+      //     attributes: ['user_name'],
+      //   },
+      // ],
     });
 
     // Serialize data so the template can read it
@@ -31,15 +31,15 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blogs/:id', async (req, res) => {
   try {
-    const blogData = await Blog.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['user_name'],
-        },
-      ],
+    const blogData = await Blog.findByPk(req.params.id, { include: [{ all: true, nested: true }]
+      // include: [
+      //   {
+      //     model: User, as: 'blogUsers',
+      //     attributes: ['user_name'],
+      //   },
+      // ],
     });
 
     const blog = blogData.get({ plain: true });
@@ -57,14 +57,14 @@ router.get('/blog/:id', async (req, res) => {
 router.get('/api/profile', withAuth, async (req, res) => {
   try {
     // Find the logged in user based on the session ID
-    console.log(req.session.user_id);
-    const userData = await User.findByPk(req.session.user_name, {
+    console.log(req.session.user_name);
+    const userData = await User.findByPk(req.session.user_name, { include: [{ all: true, nested: true}],
       attributes: { exclude: ['password'] },
-      include: [{ model: Blog }],
+      // include: [{ model: Blog, as: 'blogs' }],
     });
 
     const users = userData.get({ plain: true });
-    // console.log(user_name);
+    console.log(users);
     res.render('profile', {
       ...users,
       user_name: req.session.user_name,
