@@ -1,5 +1,7 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const {
+  Blog
+} = require('../../models');
 
 const withAuth = require('../../utils/auth');
 
@@ -19,7 +21,7 @@ router.post('/', withAuth, async (req, res) => {
 router.get('/:id', async (req, res) => {
   console.log("in here get profile");
   console.log(req.params.id);
-  
+
   try {
     const sessionData = new Date();
     const newBlog = await Blog.findByPk(req.params.id);
@@ -42,12 +44,13 @@ router.delete('/:id', withAuth, async (req, res) => {
     const blogData = await Blog.destroy({
       where: {
         id: req.params.id,
-        // user_id: req.session.user_id,
       },
     });
 
     if (!blogData) {
-      res.status(404).json({ message: 'No blog found with this id!' });
+      res.status(404).json({
+        message: 'No blog found with this id!'
+      });
       return;
     }
 

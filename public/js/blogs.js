@@ -1,5 +1,5 @@
 const createBlog = async (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
   const title = document.querySelector('#blog-title').value.trim();
   const description = document.querySelector('#blog-text').value.trim();
@@ -9,7 +9,11 @@ const createBlog = async (event) => {
   if (title && description && date_created) {
     const response = await fetch(`/api/blogs`, {
       method: 'POST',
-      body: JSON.stringify({ title, description, date_created}),
+      body: JSON.stringify({
+        title,
+        description,
+        date_created
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -18,7 +22,7 @@ const createBlog = async (event) => {
     if (response.ok) {
       document.location.replace('/api/profile');
     } else {
-      alert('Failed to create project');
+      alert('Failed to create blog');
     }
   }
 };

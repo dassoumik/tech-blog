@@ -8,7 +8,11 @@ const newFormHandler = async (event) => {
   if (name && needed_funding && description) {
     const response = await fetch(`/api/projects`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({
+        name,
+        needed_funding,
+        description
+      }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -41,28 +45,16 @@ const delButtonHandler = async (event) => {
 
 const createHandler = async (event) => {
   document.location.replace('/api/blogs');
-  
-    // const response = await fetch(`/api/blogs`, {
-    //   method: 'GET',
-    // });
 
-    // if (response.ok) {
-    //   document.location.replace('/api/blogs');
-    // } else {
-    //   alert('Failed to get the blog add page');
-    // }
-  };
+};
 
 
 document
   .querySelector('.new-project-form')
-  // .addEventListener('submit', newFormHandler);
 
 document
   .querySelector('.create-blog')
   .addEventListener('click', createHandler);
 
-// const delButton = document
-//   .querySelectorAll('.fa-trash-alt');
-// delButton.addEventListener('click', delButtonHandler);
+
 $(document).on('click', delButtonHandler);

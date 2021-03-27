@@ -28,7 +28,6 @@ Blog.belongsToMany(Comment, {
     foreignKey: 'comment_id',
     foreignKey: 'blog_id',
     unique: false,
-    // onDelete: 'CASCADE',
   },
   constraints: false,
 });
@@ -47,4 +46,9 @@ Comment.belongsTo(User, {
 });
 
 
-module.exports = { User, Blog, Comment, BlogComment };
+module.exports = {
+  User,
+  Blog,
+  Comment,
+  BlogComment
+};

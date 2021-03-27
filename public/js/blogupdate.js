@@ -1,23 +1,10 @@
 const clickHandler = async (event) => {
-    // if (event.target.hasAttribute('data-id')) {
-    //   const id = event.target.getAttribute('data-id');
-    //   console.log(id);
-    //   const response = await fetch(`/api/profile/${id}`, {
-    //     method: 'DELETE',
-    //   });
 
-    //   if (response.ok) {
-    //     document.location.replace('/api/profile');
-    //   } else {
-    //     alert('Failed to delete project');
-    //   }
-    // }
-console.log("in click body");
+    console.log("in click body");
     if (event.target.hasAttribute('data-update')) {
         const formData = {};
         const newTitle = $('#blog-title').val();
         const newText = $('#blog-text').val();
-        // console.log(newTitle + NewText);
         const id = event.target.getAttribute('data-update');
         formData.title = newTitle;
         formData.description = newText;
@@ -40,23 +27,22 @@ console.log("in click body");
 
     if (event.target.hasAttribute('data-save')) {
         console.log("in comment save");
-    commentData = {};
-    commentData.description = $('.new-comment').val();
-    // const blogTitle = $('#blog-title'); 
-    commentData.blog_id = event.target.getAttribute('data-save');
-    const response = await fetch(`/api/comments`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(commentData)
-    });
+        commentData = {};
+        commentData.description = $('.new-comment').val();
+        commentData.blog_id = event.target.getAttribute('data-save');
+        const response = await fetch(`/api/comments`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(commentData)
+        });
 
-    if (response.ok) {
-        document.location.replace('/api/profile');
-    } else {
-        alert('Failed to add comment');
-    }
+        if (response.ok) {
+            document.location.replace('/api/profile');
+        } else {
+            alert('Failed to add comment');
+        }
     }
 };
 
@@ -70,7 +56,7 @@ async function addComment() {
 }
 
 async function saveComment() {
-    
+
 }
 
 
