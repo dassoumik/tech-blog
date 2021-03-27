@@ -20,13 +20,13 @@ Comment.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
-    // user_id: {
-    //   type: DataTypes.STRING,
-    //   references: {
-    //     model: 'user',
-    //     key: 'user_name',
-    //   }
-    // },
+    user_id: {
+      type: DataTypes.STRING,
+      references: {
+        model: 'user',
+        key: 'user_name',
+      }
+    },
     blog_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
