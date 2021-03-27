@@ -21,6 +21,7 @@
   "homepage": "https://github.com/dassoumik/tech-blog#readme",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "config.json": "0.0.4",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^8.2.0",
     "eslint": "^7.22.0",
