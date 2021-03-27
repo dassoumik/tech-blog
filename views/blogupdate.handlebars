@@ -23,9 +23,15 @@
 <div class="mt-3 text-center create-blog"><h2 class="text-center"><button class="btn btn-success" data-update={{blogdata.id}}>update</button></h2></div>
 </div>
 </form>
-</div>
 <div>
-    <button class="btn"><i class="fas fa-plus"></i> Comment</button>
+    {{#each blogdata.blogComments}}
+    {{>p comment}}
+    {{/each}}
+</div>
+<div class="mt-3 text-center ">
+    <button class="btn button btn-secondary create-comment"><i class="fas fa-plus"></i> Comment</button>
+    <button class="btn button btn-secondary save-comment d-none" data-save={{blogdata.id}}><i class="fas fa-save"></i> Save</button>
+</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

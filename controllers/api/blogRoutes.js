@@ -42,7 +42,7 @@ router.get('/:id', withAuth, async (req, res) => {
   // console.log(req.URLSearchParams.type);
   const newBlog = await Blog.findByPk(req.params.id, {
     include: [{ all: true, nested: true }],
-    // include: [{model: User, as: 'blogUsers'}]
+    // include: [{model: User, as: 'blogUsers'}, {model: Comment, as: 'blogComments' }],
   // }); 
   
     // ...req.body,
