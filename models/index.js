@@ -18,25 +18,27 @@ Blog.belongsTo(User, {
 Blog.hasMany(Comment, {
   foreignKey: 'id',
   onDelete: 'CASCADE',
-  as: 'blog',
+  as: 'commentedBlog',
   constraints: false,
 });
 
 Comment.belongsTo(Blog, {
   foreignKey: 'id',
-  as: 'blogComments'
+  as: 'blogComments',
+  constraints: false,
 });
 
 User.hasMany(Comment, {
   foreignKey: 'user_name',
   onDelete: 'CASCADE',
-  as: 'user',
+  as: 'commentedUser',
   constraints: false,
 });
 
 Comment.belongsTo(User, {
   foreignKey: 'user_name',
-  as: 'userComments'
+  as: 'userComments',
+  constraints: false,
 });
 
 
