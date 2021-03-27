@@ -5,7 +5,7 @@
 <div class="card">
   <div class="card-header text-left">
     <span> <label for="exampleInputEmail1">Blog Title</label>
-    <input type="text" class="form-control" id="blog-title" placeholder="Enter your blog title" data-update={{blogdata.id}} value="{{blogdata.title}}"></span>
+    <input type="text" class="form-control" id="blog-title" placeholder="Enter your blog title" data-title={{blogdata.id}} value="{{blogdata.title}}"></span>
     <div class="text-right">
     <span class="text-right">Created on</span> <span class="current-date" data-date={{format_date date_time}}>{{format_date date_time}}</span>
     </div> 
@@ -20,9 +20,10 @@
     </blockquote>
   </div>
 </div>
-<div class="mt-3 text-center create-blog"><h2 class="text-center"><button class="btn btn-success">update</button></h2></div>
+<div class="mt-3 text-center create-blog"><h2 class="text-center"><button class="btn btn-success" data-update={{blogdata.id}}>update</button></h2></div>
 </div>
 </form>
 </div>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/blogupdate.js"></script>

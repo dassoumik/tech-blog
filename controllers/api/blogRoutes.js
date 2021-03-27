@@ -71,6 +71,26 @@ router.get('/:id', withAuth, async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  // update a blog by its `id` value
+  console.log("in put");
+  console.log(req.body);
+  try {
+    const blogUpdateData = await Blog.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
+    }).then(blogUpdateData => {
+      console.log(blogUpdateData);
+    if (!blogUpdateData[0]) {
+      res.status(404).json({ message: 'No blog with this id!' });
+      return;
+    }
+    res.status(200).json(blogUpdateData);});
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // Login route
 router.get('/login', (req, res) => {
