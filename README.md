@@ -31,7 +31,7 @@ The app is deployed in Heroku. Aceess link below.
 with each other.
 
 Link to deployed APP in Heroku:
-[Tech Blog](https://tech-blog.herokuapp.com/)
+[Tech Blog](https://sd-tech-blog.herokuapp.com/)
 
  <br>
   <br>
